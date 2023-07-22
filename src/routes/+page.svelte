@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Navbar from '../components/navbar.svelte';
+	let toggle = false;
+</script>
+
+<main>
+	<Navbar />
+</main>
+
+<style lang="scss">
+	main {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		text-decoration: none;
+	}
+</style>
