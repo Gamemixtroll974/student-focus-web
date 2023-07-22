@@ -1,4 +1,9 @@
 <script lang="ts">
+	import MdPerson from 'svelte-icons/md/MdPerson.svelte';
+	import { circInOut } from 'svelte/easing';
+	import { fade } from 'svelte/transition';
+	import '../styles/+page.scss';
+	let toggleProfile = false;
 </script>
 
 <nav class="nav">
@@ -10,62 +15,18 @@
 	<div class="center-items">
 		<a href="/">Accueil</a>
 		<a href="/notes">Notes</a>
+		<a href="/pomodoro">Pomodoro</a>
+		<a href="/concentration">Concentration</a>
+	</div>
+	<div class="right-items">
+		<div class="icon" on:click={() => (toggleProfile = !toggleProfile)}>
+			<MdPerson />
+		</div>
+		{#if toggleProfile}
+			<div class="profile" transition:fade={{ delay: 100, duration: 500, easing: circInOut }}>
+				<a href="/connexion">Connexion</a>
+				<a href="/inscription">Inscription</a>
+			</div>
+		{/if}
 	</div>
 </nav>
-
-<style lang="scss">
-	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-	:root {
-		--poppins: 'Poppins', sans-serif;
-	}
-
-	.nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background-color: #272727;
-		color: #fff;
-		height: 56px;
-
-		.left-items {
-			flex: 1;
-			.title {
-				h1 {
-					margin: 0;
-					margin-left: 10px;
-					font-family: var(--poppins);
-					letter-spacing: 0.5px;
-					text-decoration: underline;
-				}
-			}
-		}
-
-		.center-items {
-			flex: 1;
-
-			a {
-				color: #fff;
-				position: relative;
-				text-decoration: none;
-				font-family: var(--poppins);
-				margin-right: 10px;
-
-				&::before {
-					content: '';
-					position: absolute;
-					width: 100%;
-					height: 4px;
-					background-color: #ffffff;
-					border-radius: 5px;
-					bottom: 0;
-					transform: scaleX(0);
-					transition: transform 0.3s ease-in-out;
-				}
-
-				&:hover::before {
-					transform: scaleX(1);
-				}
-			}
-		}
-	}
-</style>

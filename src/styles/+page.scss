@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+	--poppins: 'Poppins', sans-serif;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #272727;
+	color: #fff;
+	height: 56px;
+
+	.left-items {
+		flex: 1;
+		.title {
+			h1 {
+				margin: 0;
+				margin-left: 10px;
+				font-family: var(--poppins);
+				letter-spacing: 0.5px;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.center-items {
+		flex: 1.7;
+
+		a {
+			color: #fff;
+			position: relative;
+			text-decoration: none;
+			font-family: var(--poppins);
+			margin-right: 10px;
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 4px;
+				background-color: #ffffff;
+				bottom: 0;
+				transform: scaleX(0);
+				transition: transform 0.3s ease-in-out;
+			}
+
+			&:hover::before {
+				transform: scaleX(1);
+			}
+		}
+	}
+
+	.right-items {
+		flex: 0.1;
+		transition: 0.3s ease-in-out;
+
+		.icon {
+			height: 30px;
+			cursor: pointer;
+		}
+
+		&:hover {
+			color: #ddd;
+		}
+
+		.profile {
+			position: absolute;
+			right: 10px;
+			top: 55px;
+
+			a {
+				padding: 6px 14px;
+				display: flex;
+				background-color: #272727;
+				right: 13px;
+				list-style-type: none;
+				color: #fff;
+				text-decoration: none;
+				font-family: var(--poppins);
+				transition: 0.3s ease-in-out;
+
+				&:hover {
+					background-color: #ddd;
+					color: #272727;
+				}
+			}
+		}
+	}
+}
